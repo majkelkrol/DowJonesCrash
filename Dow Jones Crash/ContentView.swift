@@ -15,45 +15,49 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
-            VStack {
-                Spacer()
-                
-                //Label-1
-                Text("Be like a stock's snajper! \n Hit the DJ Index 💵")
-                    .font(.largeTitle)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .background(Color.gray)
-                    .cornerRadius(5)
+            Spacer()
             
-            
-                //Label-2
-                Text("Your current points is: \(value)")
-                    .padding()
+            //Label-1
+            Text("Be like a stock's snajper! \n Hit the DJ Index 💵")
+                .bold()
+                .font(.largeTitle)
+                .multilineTextAlignment(.center)
+                .padding()
+                .background(Color.gray)
+                .cornerRadius(5)
+        
+        
+            //Label-2
+            Text("Your current points is: \(value)")
+                .bold()
+                .padding()
 
-                
-                //Slider
-                HStack {
-                    Text("1")
-                    Slider(value: $value, in: 1...35000)
-                    Text("35.000")
-                }
-                
-                Spacer()
-                
-                //Button
-                Button(action: {
-                    self.alert = true
-                }, label: {
-                    Text("Dow Jones Crash")
-                        .font(.largeTitle)
-                        .padding()
-                        .foregroundColor(Color.white)
-                        .background(Color.red)
-                        .cornerRadius(9)
-                })
-                Spacer()
+            
+            //Slider
+            HStack {
+                Text("1")
+                Slider(value: $value, in: 1...35000)
+                Text("35.000")
             }
+            
+            Spacer()
+            
+            //Button
+            Button(action: {
+                self.alert = true
+            }, label: {
+                Text("Dow Jones Crash")
+                    .font(.largeTitle)
+                    .padding()
+                    .foregroundColor(Color.white)
+                    .background(Color.red)
+                    .cornerRadius(9)
+            })
+            .alert(isPresented: $alert) {
+                Alert(title: Text(""), message: Text(""), dismissButton: .default(Text("")))
+            }
+            
+            Spacer()
             
             //Bottom info-labels
             HStack {
@@ -96,4 +100,5 @@ struct ContentView_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 568, height: 320))
     }
 }
+
 
