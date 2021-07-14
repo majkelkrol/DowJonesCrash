@@ -54,7 +54,8 @@ struct ContentView: View {
                     .cornerRadius(9)
             })
             .alert(isPresented: $alert) {
-                Alert(title: Text("Hello there!"), message: Text("The stock's value is \(self.sliderValue)"), dismissButton: .default(Text("Awesome")))
+                //var roundedValue: Int = Int(self.sliderValue.rounded())
+                return Alert(title: Text("Hello there!"), message: Text("The stock's value is \(self.sliderValue)"), dismissButton: .default(Text("Awesome")))
             }
             
             Spacer()
