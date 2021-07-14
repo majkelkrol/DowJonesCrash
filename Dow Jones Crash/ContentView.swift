@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var value = 50.0
+    @State var sliderValue = 17500.0
     @State var alert = false
     
     var body: some View {
@@ -28,7 +28,7 @@ struct ContentView: View {
         
         
             //Label-2
-            Text("Your current points is: \(value)")
+            Text("Your current points is: \(sliderValue)")
                 .bold()
                 .padding()
 
@@ -36,7 +36,7 @@ struct ContentView: View {
             //Slider
             HStack {
                 Text("1")
-                Slider(value: $value, in: 1...35000)
+                Slider(value: $sliderValue, in: 1.0...35000.0)
                 Text("35.000")
             }
             
@@ -54,7 +54,7 @@ struct ContentView: View {
                     .cornerRadius(9)
             })
             .alert(isPresented: $alert) {
-                Alert(title: Text(""), message: Text(""), dismissButton: .default(Text("")))
+                Alert(title: Text("Hello there!"), message: Text("The stock's value is \(self.sliderValue)"), dismissButton: .default(Text("Awesome")))
             }
             
             Spacer()
